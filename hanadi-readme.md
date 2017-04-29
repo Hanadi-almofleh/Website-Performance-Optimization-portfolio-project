@@ -1,7 +1,7 @@
 # Optimaization 
-you can find the link of we page [here] (https://hanadi-almofleh.github.io/Website-Performance-Optimization-portfolio-project/)
+you can find the link of we page [here](https://hanadi-almofleh.github.io/Website-Performance-Optimization-portfolio-project/)
 
-[pizza] (https://hanadi-almofleh.github.io/Website-Performance-Optimization-portfolio-project/views/pizza.html)
+[pizza](https://hanadi-almofleh.github.io/Website-Performance-Optimization-portfolio-project/views/pizza.html)
 
 ## Main page (index)
  - inline styles.css to html
