@@ -27,9 +27,10 @@ document.addEventListener('DOMContentLoaded', function()
 - also reduce number of elements make the 25 instead 200.
 - add hight and width in style file.
 
-##### At event Scroll: 
-function updatePositions() 
-calculate the style value outside the loop to avoid FSL
+##### At event Scroll
+
+in the function updatePositions(), calculate the style value outside the loop to avoid FSL
+
 ---
 ### 2- change pizza size 
 - calculate pizza width outside the loop. 
