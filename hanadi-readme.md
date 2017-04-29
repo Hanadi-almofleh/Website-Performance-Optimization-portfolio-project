@@ -22,7 +22,7 @@ those using functions updatePositions() and changePizzaSizes(size). below detail
 document.addEventListener('DOMContentLoaded', function() 
 
 - instead of calling update position function after DOM content Load, just assign the position value while creating the element as below line.
- elem.style.left = elem.basicLeft + 'px';
+ > elem.style.left = elem.basicLeft + 'px';
 - also reduce number of elements make the 25 instead 200.
 - add hight and width in style file.
 
