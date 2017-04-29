@@ -469,7 +469,7 @@ var resizePizzas = function(size) {
 
     // Iterates through pizza elements on the page and changes their widths
     function changePizzaSizes(size) {
-        var newWidth=0;
+        var newWidth = 0;
         switch (size) {
             case "1":
                 newWidth = 25;
@@ -532,19 +532,17 @@ function logAverageFrame(times) { // times is the array of User Timing measureme
 // https://www.igvita.com/slides/2012/devtools-tips-and-tricks/jank-demo.html
 
 // Moves the sliding background pizzas based on scroll position
-function updatePositions() {
+function updatePositions(phase) {
     frame++;
     window.performance.mark("mark_start_frame");
-    //console.log("phase origion:"+Math.sin((document.body.scrollTop / 1250)));
     var items = document.querySelectorAll('.mover');
-    var phase = Math.sin((document.body.scrollTop / 1250));
-
+    var phase = Math.sin((document.body.scrollTop / 1250)) * 100;
 
     for (var i = 0; i < items.length; i++) {
         //remove below line from for loop to avoid FSL
         //var phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
         // console.log("phase%:"+phase);
-        items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
+        items[i].style.left = items[i].basicLeft + phase + 'px';
     }
 
     // User Timing API to the rescue again. Seriously, it's worth learning.
@@ -576,7 +574,8 @@ document.addEventListener('DOMContentLoaded', function() {
         elem.basicLeft = (i % cols) * s;
         elem.style.top = (Math.floor(i / cols) * s) + 'px';
         document.querySelector("#movingPizzas1").appendChild(elem);
+        elem.style.left = elem.basicLeft + 'px'; // add this colunm instead of calling update position function
 
     }
-    // updatePositions();
+    //  updatePositions();
 });
