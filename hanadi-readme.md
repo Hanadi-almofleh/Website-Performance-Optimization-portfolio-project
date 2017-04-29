@@ -11,7 +11,7 @@ https://hanadi-almofleh.github.io/Website-Performance-Optimization-portfolio-pro
  - optimize and copress the images
  - minify html
 ---
----
+
 
 
 ## view page (Pizza page)
