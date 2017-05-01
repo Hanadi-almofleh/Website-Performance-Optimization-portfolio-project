@@ -532,7 +532,7 @@ function logAverageFrame(times) { // times is the array of User Timing measureme
 // https://www.igvita.com/slides/2012/devtools-tips-and-tricks/jank-demo.html
 
 // Moves the sliding background pizzas based on scroll position
-function updatePositions(phase) {
+function updatePositions() {
     frame++;
     window.performance.mark("mark_start_frame");
     var items = document.querySelectorAll('.mover');
@@ -542,7 +542,7 @@ function updatePositions(phase) {
         //remove below line from for loop to avoid FSL
         //var phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
         // console.log("phase%:"+phase);
-        items[i].style.left = items[i].basicLeft + phase + 'px';
+        items[i].style.left = items[i].basicLeft + phase+(i % 5) + 'px';
     }
 
     // User Timing API to the rescue again. Seriously, it's worth learning.
@@ -562,10 +562,13 @@ window.addEventListener('scroll', updatePositions);
 document.addEventListener('DOMContentLoaded', function() {
     var cols = 8;
     var s = 256;
-    // reduce number of elements fromm 200 too 25
+    var elem = document.createElement('img'); //define elem outside the loop to avoid redefined  each time through the loop
+    var numberScrolling= (screen.height/s)*cols; // educing the number of scrolling pizzas to fit all screens size
+    // reduce number of elements fromm 200 to 25 or numberScrolling
     //for (var i = 0; i < 200; i++) {
-    for (var i = 0; i < 25; i++) {
-        var elem = document.createElement('img');
+    for (var i = 0; i < numberScrolling; i++) {
+       // var elem = document.createElement('img');
+        elem = document.createElement('img');
         elem.className = 'mover';
         elem.src = "images/pizza.png";
         // below lines have added to style file
